@@ -1,0 +1,105 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+  background: #6d94ca;
+  background: -moz-linear-gradient(45deg, #6d94ca 0%, #a8c1ef 100%);
+  background: -webkit-linear-gradient(45deg, #6d94ca 0%, #a8c1ef 100%);
+  background: linear-gradient(45deg, #6d94ca 0%, #a8c1ef 100%);
+}
+
+[role="button"] {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+pre {
+  color: hsl(60, 100%, 64%);
+}
+
+.main__title {
+  font-weight: 500;
+  text-align: center;
+  margin: 1rem;
+}
+
+.carousel__container {
+  height: 30rem;
+  background: hsl(0, 0%, 50%);
+  box-shadow: 0px 1px 20px 0px hsla(0, 0%, 38%, 0.6);
+}
+
+.arrows {
+  width: 1rem;
+  height: 1rem;
+  border-color: #000;
+  position: absolute;
+  top: 50%;
+  text-decoration: none;
+  color: hsla(0, 0%, 100%, 0.82);
+}
+
+.prev {
+  border-bottom: 0.3rem solid;
+  border-left: 0.3rem solid;
+  transform: rotate(45deg);
+  left: 30px;
+}
+
+.next {
+  border-bottom: 0.3rem solid;
+  border-left: 0.3rem solid;
+  transform: rotate(-135deg);
+  right: 30px;
+}
+
+.carousel-dots {
+  margin-top: -2rem;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  display: block;
+}
+
+.carousel-dot {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+
+.active .carousel-dot-btn {
+  background: hsl(0, 0%, 100%);
+}
+
+.carousel-dot-btn {
+  background: hsla(0, 0%, 100%, 0.49);
+  border-radius: 50%;
+  height: 1rem;
+  width: 1rem;
+  border: 0;
+  cursor: pointer;
+}
+
+.controller {
+  margin: 1rem;
+}
+
+.carousel__controllers {
+  margin: 3rem;
+  padding: 3rem;
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0px 1px 20px 8px hsl(0deg 0% 38% / 60%);
+}

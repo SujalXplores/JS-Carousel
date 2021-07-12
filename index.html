@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A customizable carousel with pure HTML, CSS, and JavaScript by Sujal Shah.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="./index.css" rel="stylesheet" type="text/css">
+    <title>JS Carousel</title>
+</head>
+
+<body>
+    <h1 class="main__title">
+        <pre>JS</pre> Carousel
+    </h1>
+
+    <section class="main__wrapper">
+
+        <div class="carousel__container">
+            <div class="carousel"></div>
+            <a class="arrows prev" id="carousel-arrow-prev" role="button">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="arrows next" id="carousel-arrow-next" role="button">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <ul class="carousel-dots" id="dots-container">
+            <li class="carousel-dot active"><button class="carousel-dot-btn"></button></li>
+            <li class="carousel-dot"><button class="carousel-dot-btn"></button></li>
+            <li class="carousel-dot"><button class="carousel-dot-btn"></button></li>
+            <li class="carousel-dot"><button class="carousel-dot-btn"></button></li>
+        </ul>
+
+        <div class="carousel__controllers">
+
+            <h3>Controllers</h3>
+
+            <div class="controller arrow__toggle__controller">
+                <input type="checkbox" id="toggle_arrows" onclick="toggleArrows(this)" checked />
+                <label for="toggle_arrows">Show / Hide Arrow</label>
+            </div>
+            <div class="controller indecator__controller">
+                <input type="checkbox" id="toggle_indecator" onclick="toggleDots(this)" checked />
+                <label for="toggle_indecator">Show / Hide Indicator</label>
+            </div>
+        </div>
+
+    </section>
+
+    <script type="text/javascript" src="./index.js" defer></script>
+</body>
+
+</html>
