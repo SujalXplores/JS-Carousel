@@ -28,6 +28,8 @@ function toggleNumberIndicator(numberIndicatorCheckBox) {
 }
 
 function addCarousel() {
-  document.getElementById("carousel").innerHTML =
+  document.querySelector(".carousel__container").innerHTML =
     "<img src='https://media.cntraveler.com/photos/5a8f3b070e2cf839e9dbfa1d/2:1/w_2560%2Cc_limit/NYC_GettyImages-640006562.jpg' alt='New York City Travel Guide &amp;amp; Tips | Condé Nast Traveler'>";
 }
+
+// TODO: Uncheck number indicator checkbox when Toggle indicator is unchecked.

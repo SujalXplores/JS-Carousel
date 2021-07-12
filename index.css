@@ -34,9 +34,10 @@ a {
   box-shadow: 0px 1px 20px 0px hsla(0, 0%, 38%, 0.6);
 }
 
-.carousel img {
+.carousel__container img {
+  object-fit: cover;
   width: 100%;
-  height: auto;
+  height: inherit;
 }
 
 .arrows {
