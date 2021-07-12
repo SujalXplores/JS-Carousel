@@ -18,6 +18,7 @@
 
     <section class="main__wrapper">
 
+        <!-- carousel arrows -->
         <div class="carousel__container">
             <div class="carousel"></div>
             <a class="arrows prev" role="button">
@@ -28,6 +29,7 @@
             </a>
         </div>
 
+        <!-- carousel indicators -->
         <ul class="carousel-dots">
             <li class="carousel-dot active"><button class="carousel-dot-btn"></button></li>
             <li class="carousel-dot"><button class="carousel-dot-btn"></button></li>
@@ -35,18 +37,25 @@
             <li class="carousel-dot"><button class="carousel-dot-btn"></button></li>
         </ul>
 
+        <!-- carousel controllers -->
         <div class="carousel__controllers">
-
-            <h3>Controllers</h3>
+            <h1 class="controllers-header">Controllers</h1>
 
             <div class="controller arrow__toggle__controller">
                 <input type="checkbox" id="toggle_arrows" onclick="toggleArrows(this)" checked />
                 <label for="toggle_arrows">Toggle Arrows</label>
             </div>
+
             <div class="controller indecator__controller">
                 <input type="checkbox" id="toggle_indecator" onclick="toggleDots(this)" checked />
                 <label for="toggle_indecator">Toggle Indicator</label>
             </div>
+
+            <div class="controller number_indecator__controller">
+                <input type="checkbox" id="toggle_number_indecator" onclick="toggleNumberIndicator(this)" />
+                <label for="toggle_number_indecator">Toggle to Number Indicators</label>
+            </div>
+
         </div>
 
     </section>

@@ -85,11 +85,18 @@ a {
   height: 1rem;
   width: 1rem;
   border: 0;
+  padding: 0.1rem;
   cursor: pointer;
 }
 
 .controller {
   margin: 1rem;
+  display: inline-block;
+}
+
+.controllers-header {
+  margin: 1rem;
+  font-weight: 500;
 }
 
 .carousel__controllers {
@@ -97,5 +104,5 @@ a {
   padding: 3rem;
   border-radius: 1rem;
   background: white;
-  box-shadow: 0px 1px 20px 8px hsl(0deg 0% 38% / 60%);
+  box-shadow: 0px 1px 20px 3px hsl(0deg 0% 38% / 60%);
 }
