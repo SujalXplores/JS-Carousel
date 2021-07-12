@@ -11,10 +11,6 @@ body {
   height: 100%;
   font-family: "Roboto", sans-serif;
   scroll-behavior: smooth;
-  background: #6d94ca;
-  background: -moz-linear-gradient(45deg, #6d94ca 0%, #a8c1ef 100%);
-  background: -webkit-linear-gradient(45deg, #6d94ca 0%, #a8c1ef 100%);
-  background: linear-gradient(45deg, #6d94ca 0%, #a8c1ef 100%);
 }
 
 [role="button"] {
@@ -24,10 +20,6 @@ body {
 a {
   text-decoration: none;
   background-color: transparent;
-}
-
-pre {
-  color: hsl(60, 100%, 64%);
 }
 
 .main__title {
@@ -50,6 +42,10 @@ pre {
   top: 50%;
   text-decoration: none;
   color: hsla(0, 0%, 100%, 0.82);
+}
+
+.arrows:hover {
+  color: hsla(0, 0%, 100%);
 }
 
 .prev {

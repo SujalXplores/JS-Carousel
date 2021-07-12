@@ -14,23 +14,21 @@
 </head>
 
 <body>
-    <h1 class="main__title">
-        <pre>JS</pre> Carousel
-    </h1>
+    <h1 class="main__title">JS Carousel</h1>
 
     <section class="main__wrapper">
 
         <div class="carousel__container">
             <div class="carousel"></div>
-            <a class="arrows prev" id="carousel-arrow-prev" role="button">
+            <a class="arrows prev" role="button">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             </a>
-            <a class="arrows next" id="carousel-arrow-next" role="button">
+            <a class="arrows next" role="button">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
             </a>
         </div>
 
-        <ul class="carousel-dots" id="dots-container">
+        <ul class="carousel-dots">
             <li class="carousel-dot active"><button class="carousel-dot-btn"></button></li>
             <li class="carousel-dot"><button class="carousel-dot-btn"></button></li>
             <li class="carousel-dot"><button class="carousel-dot-btn"></button></li>
@@ -43,11 +41,11 @@
 
             <div class="controller arrow__toggle__controller">
                 <input type="checkbox" id="toggle_arrows" onclick="toggleArrows(this)" checked />
-                <label for="toggle_arrows">Show / Hide Arrow</label>
+                <label for="toggle_arrows">Toggle Arrows</label>
             </div>
             <div class="controller indecator__controller">
                 <input type="checkbox" id="toggle_indecator" onclick="toggleDots(this)" checked />
-                <label for="toggle_indecator">Show / Hide Indicator</label>
+                <label for="toggle_indecator">Toggle Indicator</label>
             </div>
         </div>
 
