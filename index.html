@@ -18,15 +18,18 @@
 
     <section class="main__wrapper">
 
-        <!-- carousel arrows -->
         <div class="carousel__container">
-            <div class="carousel"></div>
+
+            <div class="carousel" id="carousel"></div>
+
+            <!-- carousel arrows -->
             <a class="arrows prev" role="button">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             </a>
             <a class="arrows next" role="button">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
             </a>
+
         </div>
 
         <!-- carousel indicators -->
@@ -49,8 +52,8 @@
 
             <!-- Bottom indicator toggler -->
             <div class="controller indecator__controller">
-                <input type="checkbox" id="toggle_indecator" onclick="toggleDots(this)" checked />
-                <label for="toggle_indecator">Toggle Indicator</label>
+                <input type="checkbox" id="toggle_indicator" onclick="toggleDots(this)" checked />
+                <label for="toggle_indicator">Toggle Indicator</label>
             </div>
 
             <!-- Number indicator toggler -->
@@ -59,6 +62,7 @@
                 <label for="toggle_number_indecator">Toggle to Number Indicators</label>
             </div>
 
+            <button type="button" id="add-carousel" onclick="addCarousel()">Add Carousel</button>
         </div>
 
     </section>
