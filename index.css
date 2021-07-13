@@ -58,11 +58,12 @@ a {
 .arrows {
   width: 1rem;
   height: 1rem;
-  border-color: #000;
+  border-color: hsl(0, 0%, 0%);
   position: absolute;
   top: 46%;
   text-decoration: none;
   color: hsla(0, 0%, 100%, 0.82);
+  cursor: pointer;
 }
 
 .arrows:hover {
