@@ -13,10 +13,6 @@ body {
   scroll-behavior: smooth;
 }
 
-[role="button"] {
-  cursor: pointer;
-}
-
 a {
   text-decoration: none;
   background-color: transparent;
@@ -102,8 +98,47 @@ a {
 
 .controllers-header {
   font-weight: 500;
+  margin: 1rem;
+  text-decoration: underline;
+  text-decoration-color: #0075ff;
 }
 
 .carousel__controllers {
   padding: 2rem;
+}
+
+/* form */
+
+#add_carousel_form {
+  border: 1px solid hsl(0, 0%, 50%);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+#carousel_label_input {
+  padding: 0.3rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.add__carousel__btn {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 2px solid hsl(0, 0%, 0%);
+  background: transparent;
+  font-weight: 800;
+}
+
+.add__carousel__btn:hover {
+  border: 2px solid hsl(234, 67%, 41%);
+  background: hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 100%);
 }
