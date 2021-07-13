@@ -19,42 +19,21 @@
     <section class="main__wrapper">
 
         <!-- 👇 All carousels render here -->
-        <div class="carousel__items"></div>
+        <div class="carousel__items">
+            <!-- carousel arrows ⬅ ➡ -->
+            <a class="arrows prev" role="button" onclick="nextSlide(1)">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="arrows next" role="button" onclick="nextSlide(-1)">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
 
-        <!-- carousel arrows ⬅ ➡ -->
-        <a class="arrows prev" role="button">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </a>
-        <a class="arrows next" role="button">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </a>
-
-        <!-- carousel indicators -->
-        <ul class="carousel-dots">
-            <li class="carousel-dot active"><button class="carousel-dot-btn"></button></li>
-        </ul>
+            <!-- carousel indicators -->
+            <ul class="carousel-dots"></ul>
+        </div>
 
         <!-- carousel controllers 🎮 -->
         <div class="carousel__controllers">
-            <h1 class="controllers-header">Controllers</h1>
-
-            <!-- Arrows Toggler -->
-            <div class="controller arrow__toggle__controller">
-                <input type="checkbox" id="toggle_arrows" onclick="toggleArrows(this)" checked />
-                <label for="toggle_arrows">Toggle Arrows</label>
-            </div>
-
-            <!-- Bottom indicator toggler -->
-            <div class="controller indecator__controller">
-                <input type="checkbox" id="toggle_indicator" onclick="toggleDots(this)" checked />
-                <label for="toggle_indicator">Toggle Indicator</label>
-            </div>
-
-            <!-- Number indicator toggler -->
-            <div class="controller number_indecator__controller">
-                <input type="checkbox" id="toggle_number_indicator" onclick="toggleNumberIndicator(this)" />
-                <label for="toggle_number_indicator">Toggle to Number Indicators</label>
-            </div>
 
             <!-- Add new carousel -->
             <h1 class="controllers-header">Add New Carousel</h3>
@@ -73,6 +52,26 @@
                     <button type="submit" id="add-carousel" class="add__carousel__btn">Add Carousel</button>
 
                 </form>
+
+                <h1 class="controllers-header">Controllers</h1>
+
+                <!-- Arrows Toggler -->
+                <div class="controller arrow__toggle__controller">
+                    <input type="checkbox" id="toggle_arrows" onclick="toggleArrows(this)" checked />
+                    <label for="toggle_arrows">Toggle Arrows</label>
+                </div>
+
+                <!-- Bottom indicator toggler -->
+                <div class="controller indecator__controller">
+                    <input type="checkbox" id="toggle_indicator" onclick="toggleDots(this)" checked />
+                    <label for="toggle_indicator">Toggle Indicator</label>
+                </div>
+
+                <!-- Number indicator toggler -->
+                <div class="controller number_indecator__controller">
+                    <input type="checkbox" id="toggle_number_indicator" onclick="toggleNumberIndicator(this)" />
+                    <label for="toggle_number_indicator">Toggle to Number Indicators</label>
+                </div>
 
         </div>
 
