@@ -26,6 +26,7 @@ function toggleNumberIndicator(numberIndicatorCheckBox) {
     });
     return;
   }
+  document.getElementById("toggle_indicator").checked = true;
   let dots = document.querySelector(".carousel-dots");
   dots.style.display = "block";
   allButtons.forEach((val, i) => {
