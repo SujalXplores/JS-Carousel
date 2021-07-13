@@ -19,7 +19,7 @@
     <section class="main__wrapper">
 
         <!-- 👇 All carousels render here -->
-        <div class="carousel__container"></div>
+        <div class="carousel__items"></div>
 
         <!-- carousel arrows ⬅ ➡ -->
         <a class="arrows prev" role="button">
@@ -32,9 +32,6 @@
         <!-- carousel indicators -->
         <ul class="carousel-dots">
             <li class="carousel-dot active"><button class="carousel-dot-btn"></button></li>
-            <li class="carousel-dot"><button class="carousel-dot-btn"></button></li>
-            <li class="carousel-dot"><button class="carousel-dot-btn"></button></li>
-            <li class="carousel-dot"><button class="carousel-dot-btn"></button></li>
         </ul>
 
         <!-- carousel controllers 🎮 -->
@@ -61,15 +58,16 @@
 
             <!-- Add new carousel -->
             <h1 class="controllers-header">Add New Carousel</h3>
-                <form onsubmit="event.preventDefault(); addCarousel(event);" id="add_carousel_form" autocomplete="off">
+                <form onsubmit="event.preventDefault(); addCarousel();" id="add_carousel_form" autocomplete="off">
 
                     <div class="form-group">
-                        <label for="carousel_label_input">Enter carousel label</label>
-                        <input type="text" id="carousel_label_input" required />
+                        <label for="carousel_label_input">Enter carousel text (optional)</label>
+                        <input type="text" class="form-control" id="carousel_label_input" />
                     </div>
 
                     <div class="form-group">
-                        <input type="file" required id="carousel-upload-btn" accept="image/*" />
+                        <label for="carousel_label_input">Enter carousel image URI</label>
+                        <input type="url" class="form-control" id="carousel_image_input" required />
                     </div>
 
                     <button type="submit" id="add-carousel" class="add__carousel__btn">Add Carousel</button>

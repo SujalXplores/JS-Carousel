@@ -34,6 +34,15 @@ function toggleNumberIndicator(numberIndicatorCheckBox) {
 }
 
 function addCarousel() {
-  document.querySelector(".carousel__container").innerHTML =
-    "<img src='https://media.cntraveler.com/photos/5a8f3b070e2cf839e9dbfa1d/2:1/w_2560%2Cc_limit/NYC_GettyImages-640006562.jpg' alt='New York City Travel Guide &amp;amp; Tips | Condé Nast Traveler'>";
+  let carouselText = document.getElementById("carousel_label_input").value;
+  let carouselImage = document.getElementById("carousel_image_input").value;
+  console.log(carouselImage);
+  const div = document.createElement("div");
+  div.innerHTML = `<div class="carousel__item"><img src='${carouselImage}' alt='carousel image'> ${
+    carouselText
+      ? `<div class='carousel__text'>${carouselText}</div></div>`
+      : "</div>"
+  }`;
+  document.querySelector(".carousel__items").appendChild(div);
+  document.getElementById("add_carousel_form").reset();
 }
