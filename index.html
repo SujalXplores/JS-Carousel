@@ -35,44 +35,61 @@
         <!-- carousel controllers 🎮 -->
         <div class="carousel__controllers">
 
-            <!-- Add new carousel -->
-            <h1 class="controllers-header">Add New Carousel</h3>
-                <form onsubmit="event.preventDefault(); addCarousel();" id="add_carousel_form" autocomplete="off">
+            <div class="carousel-update-container">
+                <!-- Add new carousel -->
+                <div class="add-carousel-container">
+                    <h1 class="controllers-header">Add New Carousel</h3>
+                        <form onsubmit="event.preventDefault(); addCarousel();" class="main__form"
+                            id="add_carousel_form">
+                            <div class="form-group">
+                                <label for="carousel_label_input">Enter carousel text (optional)</label>
+                                <input type="text" class="form-control" id="carousel_label_input" />
+                            </div>
 
-                    <div class="form-group">
-                        <label for="carousel_label_input">Enter carousel text (optional)</label>
-                        <input type="text" class="form-control" id="carousel_label_input" />
-                    </div>
+                            <div class="form-group">
+                                <label for="carousel_label_input">Enter carousel image URI</label>
+                                <input type="url" class="form-control" id="carousel_image_input" required />
+                            </div>
 
-                    <div class="form-group">
-                        <label for="carousel_label_input">Enter carousel image URI</label>
-                        <input type="url" class="form-control" id="carousel_image_input" required />
-                    </div>
-
-                    <button type="submit" id="add-carousel" class="add__carousel__btn">Add Carousel</button>
-
-                </form>
-
-                <h1 class="controllers-header">Controllers</h1>
-
-                <!-- Arrows Toggler -->
-                <div class="controller arrow__toggle__controller">
-                    <input type="checkbox" id="toggle_arrows" onclick="toggleArrows(this)" checked />
-                    <label for="toggle_arrows">Toggle Arrows</label>
+                            <button type="submit" id="add-carousel" class="btn__primary">Add Carousel</button>
+                        </form>
                 </div>
+                <!-- Delete carousel -->
+                <div class="delete-carousel-container">
+                    <h1 class="controllers-header">Delete Carousel</h3>
+                        <form onsubmit="event.preventDefault(); removeSlideHandler()" class="main__form"
+                            id="delete_carousel_form">
+                            <label for="available-slides">Choose index to remove:</label>
+                            <select id="available-slides" class="selectIndex" onfocus="getAllSlideIndexes()"></select>
 
-                <!-- Bottom indicator toggler -->
-                <div class="controller indecator__controller">
-                    <input type="checkbox" id="toggle_indicator" onclick="toggleDots(this)" checked />
-                    <label for="toggle_indicator">Toggle Indicator</label>
+                            <button type="submit" id="delete-carousel" class="btn__primary">Delete Carousel</button>
+                        </form>
                 </div>
+                <!-- carousel toggles -->
+                <div class="carousel-toggle-controls">
+                    <h1 class="controllers-header">Controllers</h1>
+                    <form class="main__form">
 
-                <!-- Number indicator toggler -->
-                <div class="controller number_indecator__controller">
-                    <input type="checkbox" id="toggle_number_indicator" onclick="toggleNumberIndicator(this)" />
-                    <label for="toggle_number_indicator">Toggle to Number Indicators</label>
+                        <!-- Arrows Toggler -->
+                        <div class="controller arrow__toggle__controller">
+                            <input type="checkbox" id="toggle_arrows" onclick="toggleArrows(this)" checked />
+                            <label for="toggle_arrows">Toggle Arrows</label>
+                        </div>
+
+                        <!-- Bottom indicator toggler -->
+                        <div class="controller indecator__controller">
+                            <input type="checkbox" id="toggle_indicator" onclick="toggleDots(this)" checked />
+                            <label for="toggle_indicator">Toggle Indicator</label>
+                        </div>
+
+                        <!-- Number indicator toggler -->
+                        <div class="controller number_indecator__controller">
+                            <input type="checkbox" id="toggle_number_indicator" onclick="toggleNumberIndicator(this)" />
+                            <label for="toggle_number_indicator">Toggle to Number Indicators</label>
+                        </div>
+                    </form>
                 </div>
-
+            </div>
         </div>
 
     </section>
