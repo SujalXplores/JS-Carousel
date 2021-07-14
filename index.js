@@ -1,7 +1,7 @@
 "use strict";
 
 // Global variables
-let imageIndex = 1;
+let imageIndex = 0;
 
 // toggle slide arrows to show/hide
 function toggleArrows(arrowCheckBox) {
@@ -123,5 +123,14 @@ const removeSlideHandler = () => {
 
     nextSlide(-1);
     getAllSlideIndexes();
+  }
+};
+
+const toggleAutoCarousel = (autoCarouselCheckbox) => {
+  if (autoCarouselCheckbox.checked) {
+    setTimeout(() => {
+      nextSlide(1);
+      toggleAutoCarousel(autoCarouselCheckbox);
+    }, 4000);
   }
 };

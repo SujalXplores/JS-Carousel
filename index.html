@@ -62,7 +62,7 @@
                     <h1 class="controllers-header">Delete Carousel</h3>
                         <form onsubmit="event.preventDefault(); removeSlideHandler()" class="main__form"
                             id="delete_carousel_form">
-                            <label for="available-slides">Choose index to remove:</label>
+                            <label for="available-slides">Choose slide number to remove:</label>
                             <select id="available-slides" class="selectIndex" onfocus="getAllSlideIndexes()"></select>
 
                             <button type="submit" id="delete-carousel" class="btn btn-danger">Delete Carousel</button>
@@ -90,6 +90,13 @@
                         <div class="controller number_indecator__controller">
                             <input type="checkbox" id="toggle_number_indicator" onclick="toggleNumberIndicator(this)" />
                             <label for="toggle_number_indicator">Toggle to Number Indicators</label>
+                        </div>
+
+                        <!-- Auto switch carousel -->
+                        <div class="controller carousel__autoswitch__controller">
+                            <input type="checkbox" id="toggle_autocarousel_indicator"
+                                onclick="toggleAutoCarousel(this)" />
+                            <label for="toggle_autocarousel_indicator">Toggle to Auto slide</label>
                         </div>
                     </form>
                 </div>
