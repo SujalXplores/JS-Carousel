@@ -45,9 +45,8 @@ const addCarousel = () => {
   const carouselText = document.getElementById("carousel_label_input").value;
   const carouselImage = document.getElementById("carousel_image_input").value;
   const carousel = document.createElement("div");
-  carousel.className = "carousel__item fade";
-  carousel.id = `item__${imageIndex}`;
-  carousel.innerHTML = `<img src='${carouselImage}' alt='carousel image'> ${
+  carousel.className = "carousel__item";
+  carousel.innerHTML = `<img class="fade" src='${carouselImage}' alt='carousel image'> ${
     carouselText ? `<div class='carousel__text'>${carouselText}</div>` : ""
   }`;
   document.querySelector(".carousel__items").appendChild(carousel);
@@ -88,8 +87,7 @@ function displaySlides(n) {
   }
 }
 
-// to get all slides index in dropdown
-
+// to populate slides index in dropdown
 const getAllSlideIndexes = () => {
   let allIds = document.querySelectorAll(".carousel__item");
   let selectComponent = document.getElementById("available-slides");
@@ -102,9 +100,15 @@ const getAllSlideIndexes = () => {
   });
 };
 
+// to remove slide and dot indicator
 const removeSlideHandler = () => {
   let select = document.getElementById("available-slides");
-  let selectedId = select.options[select.selectedIndex].value;
-  console.log(selectedId);
-  // document.getElementById(`item__${selectedId}`).remove();
+  if (select.options[select.selectedIndex]) {
+    let selectedId = select.options[select.selectedIndex].value;
+    console.log(selectedId);
+    document.getElementsByClassName("carousel__item")[selectedId - 1].remove();
+    document.getElementsByClassName("carousel-dot")[selectedId - 1].remove();
+    nextSlide(-1);
+    getAllSlideIndexes();
+  }
 };
