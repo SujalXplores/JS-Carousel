@@ -1,6 +1,4 @@
-*,
-::after,
-::before {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,6 +14,19 @@ body {
 a {
   text-decoration: none;
   background-color: transparent;
+}
+
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+}
+
+input[type="button"],
+input[type="checkbox"],
+button,
+select,
+a {
+  cursor: pointer;
 }
 
 .main__title {
@@ -63,7 +74,6 @@ a {
   top: 46%;
   text-decoration: none;
   color: hsla(0, 0%, 100%, 0.82);
-  cursor: pointer;
 }
 
 .arrows:hover {
@@ -108,7 +118,6 @@ a {
   width: 1rem;
   border: 0;
   padding: 0.1rem;
-  cursor: pointer;
 }
 
 .controller {
@@ -127,12 +136,30 @@ a {
   padding: 2rem;
 }
 
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* form */
 
-#add_carousel_form {
+.main__form {
   border: 1px solid hsl(0, 0%, 50%);
   padding: 1rem;
   border-radius: 0.5rem;
+}
+
+.main__form:hover {
+  box-shadow: 0px 0px;
 }
 
 .form-group {
@@ -147,18 +174,35 @@ a {
   padding: 0.3rem;
   width: 100%;
   max-width: 300px;
+  font-family: inherit;
+  border-radius: 5px;
+  border: 2px solid hsl(0, 0%, 0%);
 }
 
-.add__carousel__btn {
-  cursor: pointer;
+.form-control:focus {
+  outline: none;
+  background: hsl(195, 53%, 79%);
+  border: 2px solid hsl(240, 100%, 50%);
+}
+
+.btn__primary {
+  display: block;
   padding: 0.5rem 1rem;
-  border: 2px solid hsl(0, 0%, 0%);
+  border: 2px solid hsla(0, 0%, 0%, 0.5);
   background: transparent;
   font-weight: 800;
+  font-family: inherit;
+  margin: 0.5rem 0;
+  border-radius: 1rem;
 }
 
-.add__carousel__btn:hover {
+.btn__primary:hover {
   border: 2px solid hsl(234, 67%, 41%);
   background: hsl(0, 0%, 0%);
   color: hsl(0, 0%, 100%);
+}
+
+.selectIndex {
+  padding: 0.3rem;
+  margin: 0.5rem;
 }
