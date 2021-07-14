@@ -1,18 +1,20 @@
 "use strict";
 
+let imageIndex = 1;
+
 // toggle slide arrows to show/hide
 function toggleArrows(arrowCheckBox) {
-  let arrowPrev = document.querySelector(".prev");
-  let arrowsNext = document.querySelector(".next");
+  const arrowPrev = document.querySelector(".prev");
+  const arrowsNext = document.querySelector(".next");
   arrowPrev.style.display = arrowCheckBox.checked ? "block" : "none";
   arrowsNext.style.display = arrowCheckBox.checked ? "block" : "none";
 }
 
 // toggle slide bottom indicator to show/hide
 function toggleDots(dotsCheckBox) {
-  let dots = document.querySelector(".carousel-dots");
+  const dots = document.querySelector(".carousel-dots");
   dots.style.display = dotsCheckBox.checked ? "block" : "none";
-  let toggleNumberIndicator = document.getElementById(
+  const toggleNumberIndicator = document.getElementById(
     "toggle_number_indicator"
   );
   if (!dotsCheckBox.checked) {
@@ -22,7 +24,7 @@ function toggleDots(dotsCheckBox) {
 
 // toggle add number indicator to show/hide
 function toggleNumberIndicator(numberIndicatorCheckBox) {
-  let allButtons = document.querySelectorAll(".carousel-dot-btn");
+  const allButtons = document.querySelectorAll(".carousel-dot-btn");
   if (!numberIndicatorCheckBox.checked) {
     allButtons.forEach((val) => {
       val.innerHTML = null;
@@ -30,7 +32,7 @@ function toggleNumberIndicator(numberIndicatorCheckBox) {
     return;
   }
   document.getElementById("toggle_indicator").checked = true;
-  let dots = document.querySelector(".carousel-dots");
+  const dots = document.querySelector(".carousel-dots");
   dots.style.display = "block";
   allButtons.forEach((val, i) => {
     val.innerHTML = i + 1;
@@ -38,12 +40,13 @@ function toggleNumberIndicator(numberIndicatorCheckBox) {
 }
 
 // add new slide to carousel
-function addCarousel() {
+const addCarousel = () => {
   // adding a carousel image and text
-  let carouselText = document.getElementById("carousel_label_input").value;
-  let carouselImage = document.getElementById("carousel_image_input").value;
+  const carouselText = document.getElementById("carousel_label_input").value;
+  const carouselImage = document.getElementById("carousel_image_input").value;
   const carousel = document.createElement("div");
-  carousel.className = "carousel__item";
+  carousel.className = "carousel__item fade";
+  carousel.id = `item__${imageIndex}`;
   carousel.innerHTML = `<img src='${carouselImage}' alt='carousel image'> ${
     carouselText ? `<div class='carousel__text'>${carouselText}</div>` : ""
   }`;
@@ -56,10 +59,11 @@ function addCarousel() {
   document.querySelector(".carousel-dots").appendChild(dot);
   document.getElementById("add_carousel_form").reset();
   nextSlide(1);
-}
+  imageIndex += 1;
+};
 
 // initialize slide index by 1
-var slide_index = 1;
+let slide_index = 1;
 displaySlides(slide_index);
 
 // to go next slide_index
@@ -69,7 +73,7 @@ function nextSlide(n) {
 
 // to display 1 slide and hide other slides
 function displaySlides(n) {
-  var slides = document.getElementsByClassName("carousel__item");
+  let slides = document.getElementsByClassName("carousel__item");
   if (n > slides.length) {
     slide_index = 1;
   }
@@ -83,3 +87,24 @@ function displaySlides(n) {
     slides[slide_index - 1].style.display = "block";
   }
 }
+
+// to get all slides index in dropdown
+
+const getAllSlideIndexes = () => {
+  let allIds = document.querySelectorAll(".carousel__item");
+  let selectComponent = document.getElementById("available-slides");
+  selectComponent.innerHTML = "";
+  allIds.forEach((val, index) => {
+    const opt = document.createElement("option");
+    opt.value = index + 1;
+    opt.innerHTML = index + 1;
+    document.getElementById("available-slides").appendChild(opt);
+  });
+};
+
+const removeSlideHandler = () => {
+  let select = document.getElementById("available-slides");
+  let selectedId = select.options[select.selectedIndex].value;
+  console.log(selectedId);
+  // document.getElementById(`item__${selectedId}`).remove();
+};
