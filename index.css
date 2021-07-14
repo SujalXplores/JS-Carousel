@@ -34,7 +34,7 @@ a {
   text-align: center;
   margin: 1rem;
   text-decoration: underline wavy;
-  text-decoration-color: hsl(60, 100%, 64%);
+  text-decoration-color: hsl(41deg 100% 51%);
 }
 
 .carousel__items {
@@ -107,8 +107,8 @@ a {
   margin: 0 0.5rem;
 }
 
-.carousel-dot-btn .active {
-  background: hsla(0, 0%, 78%, 0.5);
+.carousel-dot .active {
+  background: hsla(0, 100%, 50%, 0.5);
 }
 
 .carousel-dot-btn {
@@ -122,18 +122,25 @@ a {
 
 .controller {
   margin: 1rem;
-  display: inline-block;
+  display: block;
 }
 
 .controllers-header {
   font-weight: 500;
   margin: 1rem;
   text-decoration: underline dotted;
-  text-decoration-color: hsl(212, 100%, 50%);
+  text-decoration-color: hsl(41deg 100% 51%);
+  text-align: center;
 }
 
 .carousel__controllers {
   padding: 2rem;
+}
+
+.carousel-update-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .fade {
@@ -155,10 +162,12 @@ a {
   border: 1px solid hsl(0, 0%, 50%);
   padding: 1rem;
   border-radius: 0.5rem;
+  height: 15rem;
+  box-shadow: rgb(116 129 141 / 10%) 0px 3px 8px 0px;
 }
 
 .main__form:hover {
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid hsl(45, 90%, 51%);
 }
 
 .form-group {
@@ -191,7 +200,7 @@ a {
   padding: 0.5rem 2rem;
   margin: 0 10px 0 0;
   color: #fff;
-  background: #ffb005;
+  background: hsl(41deg 100% 51%);
   box-shadow: 0 0 30px 0 rgb(255 176 5 / 40%);
   transition: all 0.5s ease-in-out;
   border: 0;
