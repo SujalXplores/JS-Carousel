@@ -20,6 +20,7 @@
 
         <!-- 👇 All carousels render here -->
         <div class="carousel__items">
+
             <!-- carousel arrows ⬅ ➡ -->
             <a class="arrows prev" role="button" onclick="nextSlide(1)">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -36,6 +37,7 @@
         <div class="carousel__controllers">
 
             <div class="carousel-update-container">
+
                 <!-- Add new carousel -->
                 <div class="add-carousel-container">
                     <h1 class="controllers-header">Add New Carousel</h3>
@@ -51,9 +53,10 @@
                                 <input type="url" class="form-control" id="carousel_image_input" required />
                             </div>
 
-                            <button type="submit" id="add-carousel" class="btn__primary">Add Carousel</button>
+                            <button type="submit" id="add-carousel" class="btn">Add Carousel</button>
                         </form>
                 </div>
+
                 <!-- Delete carousel -->
                 <div class="delete-carousel-container">
                     <h1 class="controllers-header">Delete Carousel</h3>
@@ -62,9 +65,10 @@
                             <label for="available-slides">Choose index to remove:</label>
                             <select id="available-slides" class="selectIndex" onfocus="getAllSlideIndexes()"></select>
 
-                            <button type="submit" id="delete-carousel" class="btn__primary">Delete Carousel</button>
+                            <button type="submit" id="delete-carousel" class="btn btn-danger">Delete Carousel</button>
                         </form>
                 </div>
+
                 <!-- carousel toggles -->
                 <div class="carousel-toggle-controls">
                     <h1 class="controllers-header">Controllers</h1>
@@ -89,7 +93,9 @@
                         </div>
                     </form>
                 </div>
+
             </div>
+
         </div>
 
     </section>
