@@ -112,11 +112,11 @@ a {
 }
 
 .carousel-dot-btn {
-  background: hsla(0, 0%, 0%, 0.5);
+  background: hsl(0deg 0% 100%);
   border-radius: 50%;
   height: 1rem;
   width: 1rem;
-  border: 0;
+  border: 5px solid black;
   padding: 0.1rem;
 }
 
@@ -137,8 +137,7 @@ a {
 }
 
 .fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
+  animation: fade 0.5s;
 }
 
 @keyframes fade {
@@ -159,7 +158,7 @@ a {
 }
 
 .main__form:hover {
-  box-shadow: 0px 0px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 .form-group {
@@ -185,21 +184,25 @@ a {
   border: 2px solid hsl(240, 100%, 50%);
 }
 
-.btn__primary {
-  display: block;
-  padding: 0.5rem 1rem;
-  border: 2px solid hsla(0, 0%, 0%, 0.5);
-  background: transparent;
-  font-weight: 800;
+.btn {
   font-family: inherit;
-  margin: 0.5rem 0;
+  display: block;
   border-radius: 1rem;
+  padding: 0.5rem 2rem;
+  margin: 0 10px 0 0;
+  color: #fff;
+  background: #ffb005;
+  box-shadow: 0 0 30px 0 rgb(255 176 5 / 40%);
+  transition: all 0.5s ease-in-out;
+  border: 0;
 }
 
-.btn__primary:hover {
-  border: 2px solid hsl(234, 67%, 41%);
+.btn:hover {
   background: hsl(0, 0%, 0%);
-  color: hsl(0, 0%, 100%);
+}
+
+.btn-danger:hover {
+  color: hsl(0, 100%, 66%);
 }
 
 .selectIndex {
