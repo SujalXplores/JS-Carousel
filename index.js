@@ -1,7 +1,8 @@
 "use strict";
 
-// Global variables
+// initialize slide index by 1
 let imageIndex = 0;
+let slide_index = 1;
 
 // toggle slide arrows to show/hide
 function toggleArrows(arrowCheckBox) {
@@ -62,8 +63,15 @@ const addCarousel = () => {
   // adding indicator dot to slider
   const dot = document.createElement("li");
 
+  // check if number checkbox is ticked
+  const isNumberCheckbox = document.getElementById(
+    "toggle_number_indicator"
+  ).checked;
+
   dot.className = "carousel-dot";
-  dot.innerHTML = '<button class="carousel-dot-btn"></button>';
+  dot.innerHTML = `<button class="carousel-dot-btn" onclick="navigateToImage(this)" data-slide-to="${imageIndex}">${
+    isNumberCheckbox ? imageIndex + 1 : ""
+  }</button>`;
 
   document.querySelector(".carousel-dots").appendChild(dot);
 
@@ -73,8 +81,6 @@ const addCarousel = () => {
   imageIndex += 1;
 };
 
-// initialize slide index by 1
-let slide_index = 1;
 displaySlides(slide_index);
 
 // to go next slide_index
@@ -121,8 +127,19 @@ const removeSlideHandler = () => {
     document.getElementsByClassName("carousel__item")[selectedId - 1].remove();
     document.getElementsByClassName("carousel-dot")[selectedId - 1].remove();
 
+    const allDots = document.querySelectorAll(".carousel-dot-btn");
+    allDots.forEach((button, i) => {
+      button.setAttribute("data-slide-to", i);
+    });
+
     nextSlide(-1);
+    imageIndex -= 1;
+
+    // reassign indexes to select menu
     getAllSlideIndexes();
+
+    // to reset all button inner indicators
+    toggleNumberIndicator(document.getElementById("toggle_number_indicator"));
   }
 };
 
@@ -134,3 +151,43 @@ const toggleAutoCarousel = (autoCarouselCheckbox) => {
     }, 4000);
   }
 };
+
+function navigateToImage(clickedSlide) {
+  let clickedButton = clickedSlide.dataset.slideTo;
+  const allDots = document.querySelectorAll(".carousel-dot-btn");
+  allDots.forEach((button) => {
+    if (clickedButton === button.getAttribute("data-slide-to")) {
+      let slides = document.querySelectorAll(".carousel__item");
+      clickedButton = parseInt(clickedButton);
+      slide_index = clickedButton;
+      for (let i = 0; i < slides.length; i++) {
+        if (clickedButton === i) {
+          slides[i].style.display = "block";
+        } else {
+          slides[i].style.display = "none";
+        }
+      }
+    }
+  });
+}
+
+// Touch events for carousel
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+const carousel = document.getElementById("main__slider");
+
+const handleGesture = () => {
+  if (touchEndX < touchStartX) nextSlide(-1);
+  if (touchEndX > touchStartX) nextSlide(1);
+};
+
+carousel.addEventListener("touchstart", (event) => {
+  touchStartX = event.changedTouches[0].screenX;
+});
+
+carousel.addEventListener("touchend", (event) => {
+  touchEndX = event.changedTouches[0].screenX;
+  handleGesture();
+});
