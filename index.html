@@ -19,13 +19,13 @@
     <section class="main__wrapper">
 
         <!-- 👇 All carousels render here -->
-        <div class="carousel__items">
+        <div class="carousel__items" id="main__slider">
 
             <!-- carousel arrows ⬅ ➡ -->
-            <a class="arrows prev" role="button" onclick="nextSlide(1)">
+            <a class="arrows prev" role="button" onclick="nextSlide(-1)">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             </a>
-            <a class="arrows next" role="button" onclick="nextSlide(-1)">
+            <a class="arrows next" role="button" onclick="nextSlide(1)">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
             </a>
 
@@ -42,7 +42,7 @@
                 <div class="add-carousel-container">
                     <h1 class="controllers-header">Add New Carousel</h3>
                         <form onsubmit="event.preventDefault(); addCarousel();" class="main__form"
-                            id="add_carousel_form">
+                            id="add_carousel_form" spellcheck="false">
                             <div class="form-group">
                                 <label for="carousel_label_input">Enter carousel text (optional)</label>
                                 <input type="text" class="form-control" id="carousel_label_input" />
@@ -62,8 +62,9 @@
                     <h1 class="controllers-header">Delete Carousel</h3>
                         <form onsubmit="event.preventDefault(); removeSlideHandler()" class="main__form"
                             id="delete_carousel_form">
-                            <label for="available-slides">Choose slide number to remove:</label>
-                            <select id="available-slides" class="selectIndex" onfocus="getAllSlideIndexes()"></select>
+                            <label for="available-slides">Choose position to remove:</label>
+                            <select id="available-slides" class="selectIndex" onfocus="getAllSlideIndexes()"
+                                required></select>
 
                             <button type="submit" id="delete-carousel" class="btn btn-danger">Delete Carousel</button>
                         </form>
