@@ -1,3 +1,10 @@
+:root {
+  --color-primary: hsl(45, 90%, 51%);
+  --color-black: hsl(0, 0%, 0%);
+  --color-white: hsla(0, 0%, 100%);
+  --color-gray: hsl(0, 0%, 50%);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -39,7 +46,7 @@ a {
 
 .carousel__items {
   margin: auto;
-  background: hsl(0, 0%, 50%);
+  background: var(--color-gray);
   box-shadow: 0px 1px 20px 0px hsl(0deg 0% 38% / 60%);
   position: relative;
 }
@@ -69,36 +76,36 @@ a {
 .arrows {
   width: 1rem;
   height: 1rem;
-  border-color: hsl(0, 0%, 0%);
+  border-color: var(--color-black);
   position: absolute;
   top: 46%;
   text-decoration: none;
-  color: hsla(0, 0%, 100%, 0.82);
+  color: var(--color-white);
 }
 
 .arrows:hover {
-  color: hsla(0, 0%, 100%);
+  color: var(--color-white);
 }
 
 .prev {
   border-bottom: 0.3rem solid;
   border-left: 0.3rem solid;
   transform: rotate(45deg);
-  left: 30px;
+  left: 1.9rem;
 }
 
 .next {
   border-bottom: 0.3rem solid;
   border-left: 0.3rem solid;
   transform: rotate(-135deg);
-  right: 30px;
+  right: 1.9rem;
 }
 
 .carousel-dots {
   text-align: center;
   width: 100%;
   position: absolute;
-  bottom: 10px;
+  bottom: -1.9rem;
   display: block;
 }
 
@@ -108,16 +115,17 @@ a {
 }
 
 .carousel-dot .active {
-  background: hsla(0, 100%, 50%, 0.5);
+  background: var(--color-primary);
 }
 
 .carousel-dot-btn {
-  background: hsl(0deg 0% 100%);
+  background: var(--color-white);
   border-radius: 50%;
-  height: 1rem;
-  width: 1rem;
-  border: 5px solid black;
+  height: 1.5rem;
+  width: 1.5rem;
   padding: 0.1rem;
+  font-weight: 800;
+  font-family: inherit;
 }
 
 .controller {
@@ -129,7 +137,7 @@ a {
   font-weight: 500;
   margin: 1rem;
   text-decoration: underline dotted;
-  text-decoration-color: hsl(41deg 100% 51%);
+  text-decoration-color: var(--color-primary);
   text-align: center;
 }
 
@@ -159,7 +167,7 @@ a {
 /* form */
 
 .main__form {
-  border: 1px solid hsl(0, 0%, 50%);
+  border: 1px solid var(--color-gray);
   padding: 1rem;
   border-radius: 0.5rem;
   height: 15rem;
@@ -167,7 +175,7 @@ a {
 }
 
 .main__form:hover {
-  border: 1px solid hsl(45, 90%, 51%);
+  border: 1px solid var(--color-primary);
 }
 
 .form-group {
@@ -179,18 +187,19 @@ a {
 }
 
 .form-control {
+  min-width: 15.6rem;
   padding: 0.3rem;
   width: 100%;
-  max-width: 300px;
+  max-width: 19rem;
   font-family: inherit;
   border-radius: 5px;
-  border: 2px solid hsl(0, 0%, 0%);
+  border: 1px solid var(--color-black);
 }
 
 .form-control:focus {
   outline: none;
   background: hsl(41deg 100% 87%);
-  border: 2px solid hsl(36, 100%, 50%);
+  border: 1px solid var(--color-primary);
 }
 
 .btn {
@@ -199,7 +208,7 @@ a {
   border-radius: 1rem;
   padding: 0.5rem 2rem;
   margin: 0 10px 0 0;
-  color: #fff;
+  color: var(--color-white);
   background: hsl(41deg 100% 51%);
   box-shadow: 0 0 30px 0 rgb(255 176 5 / 40%);
   transition: all 0.5s ease-in-out;
@@ -207,7 +216,7 @@ a {
 }
 
 .btn:hover {
-  background: hsl(0, 0%, 0%);
+  background: var(--color-black);
 }
 
 .btn-danger:hover {
