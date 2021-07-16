@@ -79,6 +79,9 @@ const addCarousel = () => {
 
   nextSlide(1);
   imageIndex += 1;
+
+  // reassign indexes to select menu
+  getAllSlideIndexes();
 };
 
 displaySlides(slide_index);
@@ -86,6 +89,7 @@ displaySlides(slide_index);
 // to go next slide_index
 function nextSlide(n) {
   displaySlides((slide_index += n));
+  indicatorSwitcher();
 }
 
 // to display 1 slide and hide other slides
@@ -152,6 +156,23 @@ const toggleAutoCarousel = (autoCarouselCheckbox) => {
   }
 };
 
+const indicatorSwitcher = () => {
+  const allDots = document.querySelectorAll(".carousel-dot-btn");
+  const allCarousel = document.querySelectorAll(".carousel__item");
+  let activeImage;
+  allCarousel.forEach((carousel, i) => {
+    if (carousel.style.display === "block") {
+      activeImage = i;
+    }
+  });
+  allDots.forEach((button) => {
+    button.classList.remove("active");
+    if (parseInt(button.dataset.slideTo) === activeImage) {
+      button.classList.add("active");
+    }
+  });
+};
+
 function navigateToImage(clickedSlide) {
   let clickedButton = clickedSlide.dataset.slideTo;
   const allDots = document.querySelectorAll(".carousel-dot-btn");
@@ -169,6 +190,7 @@ function navigateToImage(clickedSlide) {
       }
     }
   });
+  indicatorSwitcher();
 }
 
 // Touch events for carousel
