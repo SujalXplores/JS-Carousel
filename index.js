@@ -183,8 +183,9 @@ const removeSlideHandler = () => {
   }
 };
 
+let id;
 const toggleAutoCarousel = (autoCarouselCheckbox) => {
-  let id;
+  clearTimeout(id);
   if (autoCarouselCheckbox.checked) {
     id = setTimeout(() => {
       nextSlide(1);
