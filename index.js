@@ -45,6 +45,16 @@ function toggleNumberIndicator(numberIndicatorCheckBox) {
   });
 }
 
+/* Adds Element BEFORE NeighborElement */
+Element.prototype.appendBefore = function (element) {
+  element.parentNode.insertBefore(this, element);
+};
+
+/* Adds Element AFTER NeighborElement */
+Element.prototype.appendAfter = function (element) {
+  element.parentNode.insertBefore(this, element.nextSibling);
+};
+
 const addCarousel = () => {
   const carouselText = document.getElementById("carousel_label_input").value;
   const carouselImage = document.getElementById("carousel_image_input").value;
@@ -55,7 +65,23 @@ const addCarousel = () => {
     carouselText ? `<div class='carousel__text'>${carouselText}</div>` : ""
   }`;
 
-  document.querySelector(".carousel__items").appendChild(carousel);
+  // index dropdown value
+  const indexValue = document.getElementById("available-slides__add").value;
+
+  // position value before / after
+  const position = document.getElementById("add__position").value;
+  if (indexValue && indexValue >= 1 && position === "Before") {
+    carousel.appendBefore(
+      document.querySelectorAll(".carousel__item")[indexValue - 1]
+    );
+  } else if (indexValue && indexValue >= 1 && position === "After") {
+    carousel.appendAfter(
+      document.querySelectorAll(".carousel__item")[indexValue - 1]
+    );
+  } else {
+    // append children at the end (default)
+    document.querySelector(".carousel__items").appendChild(carousel);
+  }
 
   // adding indicator dot to slider
   const dot = document.createElement("li");
@@ -113,6 +139,9 @@ const populateDropdown = () => {
   selectComponent__delete.innerHTML = "";
   selectComponent__add.innerHTML = "";
 
+  document
+    .getElementById("available-slides__add")
+    .appendChild(document.createElement("option"));
   allIds.forEach((val, index) => {
     const opt_delete = document.createElement("option");
     opt_delete.value = index + 1;
