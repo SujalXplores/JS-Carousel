@@ -142,10 +142,6 @@ a {
   text-align: center;
 }
 
-.carousel__controllers {
-  padding: 2rem;
-}
-
 .carousel-update-container {
   display: flex;
   flex-wrap: wrap;
@@ -170,8 +166,10 @@ a {
 .main__form {
   border: 1px solid var(--color-gray);
   padding: 1rem;
+  margin: 0 1rem;
   border-radius: 0.5rem;
-  height: 15rem;
+  min-height: 15rem;
+  min-width: 22rem;
   box-shadow: rgb(116 129 141 / 10%) 0px 3px 8px 0px;
 }
 
@@ -191,7 +189,6 @@ a {
   min-width: 15.6rem;
   padding: 0.3rem;
   width: 100%;
-  max-width: 19rem;
   font-family: inherit;
   border-radius: 5px;
   border: 1px solid var(--color-black);
