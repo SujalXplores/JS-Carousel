@@ -1,6 +1,5 @@
 "use strict";
 
-// initialize slide index by 1
 let imageIndex = 0;
 let slide_index = 0;
 
@@ -46,9 +45,7 @@ function toggleNumberIndicator(numberIndicatorCheckBox) {
   });
 }
 
-// add new slide to carousel
 const addCarousel = () => {
-  // adding a carousel image and text
   const carouselText = document.getElementById("carousel_label_input").value;
   const carouselImage = document.getElementById("carousel_image_input").value;
 
@@ -75,18 +72,18 @@ const addCarousel = () => {
 
   document.querySelector(".carousel-dots").appendChild(dot);
 
+  // resetting the form
   document.getElementById("add_carousel_form").reset();
 
   nextSlide(1);
   imageIndex += 1;
 
-  // reassign indexes to select menu
-  getAllSlideIndexes();
+  // reassign indexes to select menu with updated values
+  populateDropdown();
 };
 
 displaySlides(slide_index);
 
-// to go next slide_index
 function nextSlide(n) {
   displaySlides((slide_index += n));
   indicatorSwitcher();
@@ -106,41 +103,51 @@ function displaySlides(n) {
   if (slides.length > 0) slides[slide_index - 1].style.display = "block";
 }
 
-// to populate slides index in dropdown
-const getAllSlideIndexes = () => {
+const populateDropdown = () => {
   let allIds = document.querySelectorAll(".carousel__item");
-  let selectComponent = document.getElementById("available-slides");
+  let selectComponent__delete = document.getElementById(
+    "available-slides__delete"
+  );
+  let selectComponent__add = document.getElementById("available-slides__add");
 
-  selectComponent.innerHTML = "";
+  selectComponent__delete.innerHTML = "";
+  selectComponent__add.innerHTML = "";
 
   allIds.forEach((val, index) => {
-    const opt = document.createElement("option");
-    opt.value = index + 1;
-    opt.innerHTML = index + 1;
-    document.getElementById("available-slides").appendChild(opt);
+    const opt_delete = document.createElement("option");
+    opt_delete.value = index + 1;
+    opt_delete.innerHTML = index + 1;
+    document.getElementById("available-slides__delete").appendChild(opt_delete);
+
+    const opt__add = document.createElement("option");
+    opt__add.value = index + 1;
+    opt__add.innerHTML = index + 1;
+    document.getElementById("available-slides__add").appendChild(opt__add);
   });
 };
 
-// to remove slide and dot indicator
 const removeSlideHandler = () => {
-  let select = document.getElementById("available-slides");
+  let select = document.getElementById("available-slides__delete");
 
   if (select.options[select.selectedIndex]) {
     let selectedId = select.options[select.selectedIndex].value;
 
     document.getElementsByClassName("carousel__item")[selectedId - 1].remove();
-    document.getElementsByClassName("carousel-dot")[selectedId - 1].remove();
+    document.getElementsByClassName("carousel-dot")[selectedId - 1].remove(); // removing dot along with slide
 
+    // updating carousel dot data attribute after delete
     const allDots = document.querySelectorAll(".carousel-dot-btn");
     allDots.forEach((button, i) => {
       button.setAttribute("data-slide-to", i);
     });
 
     nextSlide(-1);
+
+    // updating global image index after delete
     imageIndex -= 1;
 
     // reassign indexes to select menu
-    getAllSlideIndexes();
+    populateDropdown();
 
     // to reset all button inner indicators
     toggleNumberIndicator(document.getElementById("toggle_number_indicator"));
@@ -148,11 +155,14 @@ const removeSlideHandler = () => {
 };
 
 const toggleAutoCarousel = (autoCarouselCheckbox) => {
+  let id;
   if (autoCarouselCheckbox.checked) {
-    setTimeout(() => {
+    id = setTimeout(() => {
       nextSlide(1);
       toggleAutoCarousel(autoCarouselCheckbox);
     }, 4000);
+  } else {
+    clearTimeout(id);
   }
 };
 
@@ -174,8 +184,12 @@ const indicatorSwitcher = () => {
 };
 
 function navigateToImage(clickedSlide) {
+  // getting which button is clicked
   let clickedButton = clickedSlide.dataset.slideTo;
+
+  // get all bottom indicators
   const allDots = document.querySelectorAll(".carousel-dot-btn");
+
   allDots.forEach((button) => {
     if (clickedButton === button.getAttribute("data-slide-to")) {
       let slides = document.querySelectorAll(".carousel__item");
@@ -190,6 +204,8 @@ function navigateToImage(clickedSlide) {
       }
     }
   });
+
+  // setting active class after navigate to image
   indicatorSwitcher();
 }
 
@@ -201,8 +217,8 @@ let touchEndX = 0;
 const carousel = document.getElementById("main__slider");
 
 const handleGesture = () => {
-  if (touchEndX < touchStartX) nextSlide(-1);
-  if (touchEndX > touchStartX) nextSlide(1);
+  if (touchEndX < touchStartX) nextSlide(-1); // swiped left
+  if (touchEndX > touchStartX) nextSlide(1); // swiped right
 };
 
 carousel.addEventListener("touchstart", (event) => {
