@@ -2,7 +2,7 @@
 
 // initialize slide index by 1
 let imageIndex = 0;
-let slide_index = 1;
+let slide_index = 0;
 
 // toggle slide arrows to show/hide
 function toggleArrows(arrowCheckBox) {
