@@ -53,6 +53,14 @@
                                 <input type="url" class="form-control" id="carousel_image_input" required />
                             </div>
 
+                            <label for="available-slides__add">Choose position to add:</label>
+                            <select id="available-slides__add" class="selectIndex"
+                                onfocus="populateDropdown()"></select>
+                            <select class="selectIndex">
+                                <option>After</option>
+                                <option>Before</option>
+                            </select>
+
                             <button type="submit" id="add-carousel" class="btn">Add Carousel</button>
                         </form>
                 </div>
@@ -62,8 +70,8 @@
                     <h1 class="controllers-header">Delete Carousel</h3>
                         <form onsubmit="event.preventDefault(); removeSlideHandler()" class="main__form"
                             id="delete_carousel_form">
-                            <label for="available-slides">Choose position to remove:</label>
-                            <select id="available-slides" class="selectIndex" onfocus="getAllSlideIndexes()"
+                            <label for="available-slides__delete">Choose position to remove:</label>
+                            <select id="available-slides__delete" class="selectIndex" onfocus="populateDropdown()"
                                 required></select>
 
                             <button type="submit" id="delete-carousel" class="btn btn-danger">Delete Carousel</button>
