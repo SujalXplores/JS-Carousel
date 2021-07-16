@@ -126,6 +126,7 @@ a {
   padding: 0.1rem;
   font-weight: 800;
   font-family: inherit;
+  border: 2px solid var(--color-black);
 }
 
 .controller {
@@ -203,16 +204,16 @@ a {
 }
 
 .btn {
-  font-family: inherit;
   display: block;
   border-radius: 1rem;
   padding: 0.5rem 2rem;
   margin: 0 10px 0 0;
-  color: var(--color-white);
   background: hsl(41deg 100% 51%);
-  box-shadow: 0 0 30px 0 rgb(255 176 5 / 40%);
-  transition: all 0.5s ease-in-out;
   border: 0;
+  font-family: inherit;
+  color: var(--color-white);
+  box-shadow: 0 0 30px 0 rgb(255 176 5 / 40%);
+  transition: background 0.5s ease-in-out;
 }
 
 .btn:hover {
