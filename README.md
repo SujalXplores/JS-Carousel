@@ -1,8 +1,8 @@
 ### JS-Carousel
 
-# This project is purely made in HTML, CSS & JAVASCRIPT
+### This project is purely made in HTML, CSS & JAVASCRIPT
 
-# Features:
+### Features:
 ✅ Add Carousel, Delete Carousel
 ✅ Image upload with size and type validation
 ✅ Supports swipe gestures
