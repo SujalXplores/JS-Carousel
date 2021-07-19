@@ -131,23 +131,16 @@ function displaySlides(n) {
 
 const populateDropdown = () => {
   let allIds = document.querySelectorAll(".carousel__item");
-  let selectComponent__delete = document.getElementById(
-    "available-slides__delete"
-  );
+
   let selectComponent__add = document.getElementById("available-slides__add");
 
-  selectComponent__delete.innerHTML = "";
   selectComponent__add.innerHTML = "";
 
   document
     .getElementById("available-slides__add")
     .appendChild(document.createElement("option"));
-  allIds.forEach((val, index) => {
-    const opt_delete = document.createElement("option");
-    opt_delete.value = index + 1;
-    opt_delete.innerHTML = index + 1;
-    document.getElementById("available-slides__delete").appendChild(opt_delete);
 
+  allIds.forEach((val, index) => {
     const opt__add = document.createElement("option");
     opt__add.value = index + 1;
     opt__add.innerHTML = index + 1;
