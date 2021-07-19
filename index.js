@@ -61,7 +61,7 @@ const addCarousel = () => {
 
   const carousel = document.createElement("div");
   carousel.className = "carousel__item";
-  carousel.innerHTML = `<img class="fade" src='${carouselImage}' alt='carousel image'> ${
+  carousel.innerHTML = `<img class="fade" src='${carouselImage}' alt='carousel image'> <img class="delete__icon" src="./assets/delete.svg" alt="delete" onclick="removeSlideHandler(this)"/> ${
     carouselText ? `<div class='carousel__text'>${carouselText}</div>` : ""
   }`;
 
@@ -155,33 +155,25 @@ const populateDropdown = () => {
   });
 };
 
-const removeSlideHandler = () => {
-  let select = document.getElementById("available-slides__delete");
+function removeSlideHandler(delIcon) {
+  delIcon.parentElement.remove();
+  document.getElementsByClassName("carousel-dot")[0].remove();
+  const allDots = document.querySelectorAll(".carousel-dot-btn");
+  allDots.forEach((button, i) => {
+    button.setAttribute("data-slide-to", i);
+  });
 
-  if (select.options[select.selectedIndex]) {
-    let selectedId = select.options[select.selectedIndex].value;
+  nextSlide(-1);
 
-    document.getElementsByClassName("carousel__item")[selectedId - 1].remove();
-    document.getElementsByClassName("carousel-dot")[selectedId - 1].remove(); // removing dot along with slide
+  // updating global image index after delete
+  imageIndex -= 1;
 
-    // updating carousel dot data attribute after delete
-    const allDots = document.querySelectorAll(".carousel-dot-btn");
-    allDots.forEach((button, i) => {
-      button.setAttribute("data-slide-to", i);
-    });
+  // reassign indexes to select menu
+  populateDropdown();
 
-    nextSlide(-1);
-
-    // updating global image index after delete
-    imageIndex -= 1;
-
-    // reassign indexes to select menu
-    populateDropdown();
-
-    // to reset all button inner indicators
-    toggleNumberIndicator(document.getElementById("toggle_number_indicator"));
-  }
-};
+  // to reset all button inner indicators
+  toggleNumberIndicator(document.getElementById("toggle_number_indicator"));
+}
 
 let id;
 const toggleAutoCarousel = (autoCarouselCheckbox) => {

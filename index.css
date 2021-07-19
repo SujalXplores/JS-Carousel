@@ -44,6 +44,14 @@ a {
   text-decoration-color: hsl(41deg 100% 51%);
 }
 
+.delete__icon {
+  position: absolute;
+  height: 1.5rem !important;
+  bottom: 0;
+  right: 49.1%;
+  cursor: pointer;
+}
+
 .carousel__items {
   margin: auto;
   background: var(--color-gray);
@@ -54,9 +62,11 @@ a {
 .carousel__item {
   height: 28rem;
   display: none;
+  display: inline-block;
+  position: relative;
 }
 
-.carousel__item img {
+.carousel__item .fade {
   object-fit: contain;
   width: 100%;
   height: inherit;
@@ -81,6 +91,7 @@ a {
   top: 46%;
   text-decoration: none;
   color: var(--color-white);
+  z-index: 1;
 }
 
 .arrows:hover {
