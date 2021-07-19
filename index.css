@@ -176,8 +176,12 @@ a {
 /* form */
 
 #preview_image {
-  max-width: 180px;
+  max-width: 130px;
+  max-height: 90px;
+  width: 100%;
+  object-fit: contain;
   margin: 1rem 0;
+  border: 1px dashed var(--color-black);
 }
 
 .thumbnail-container {
