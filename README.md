@@ -1,6 +1,10 @@
 ### JS-Carousel
 
+---
+
 ### This project is purely made in HTML, CSS & JAVASCRIPT
+
+---
 
 ### Features:
 ✅ Add Carousel, Delete Carousel<br>
