@@ -2,6 +2,7 @@
 
 let imageIndex = 0;
 let slide_index = 0;
+let selectedImage;
 
 // toggle slide arrows to show/hide
 function toggleArrows(arrowCheckBox) {
@@ -46,14 +47,20 @@ function toggleNumberIndicator(numberIndicatorCheckBox) {
 }
 
 function readURL(input) {
-  if (input.files && input.files[0]) {
+  if (input.files && input.files[0] && input.files[0].size < 1048576) {
     let reader = new FileReader();
     reader.onload = function (e) {
       let image = document.getElementById("preview_image");
       image.src = e.target.result;
+      selectedImage = e.target.result;
     };
     reader.readAsDataURL(input.files[0]);
     document.querySelector(".cancel__svg").style.display = "block";
+  } else {
+    alert(
+      (input.files[0].size / 1048576).toPrecision(2) + "mb size is too large"
+    );
+    onCancelPreview();
   }
 }
 
@@ -75,11 +82,11 @@ Element.prototype.appendAfter = function (element) {
 
 const addCarousel = () => {
   const carouselText = document.getElementById("carousel_label_input").value;
-  const carouselImage = document.getElementById("carousel_image_input").value;
+  // const carouselImage = document.getElementById("carousel_image_input").value;
 
   const carousel = document.createElement("div");
   carousel.className = "carousel__item";
-  carousel.innerHTML = `<img class="fade" src='${carouselImage}' alt='carousel image'> <img class="delete__icon" src="./assets/delete.svg" alt="delete" onclick="removeSlideHandler(this)"/> ${
+  carousel.innerHTML = `<img class="fade" src='${selectedImage}' alt='carousel image'> <img class="delete__icon" src="./assets/delete.svg" alt="delete" onclick="removeSlideHandler(this)"/> ${
     carouselText ? `<div class='carousel__text'>${carouselText}</div>` : ""
   }`;
 
@@ -124,6 +131,9 @@ const addCarousel = () => {
 
   // reassign indexes to select menu with updated values
   populateDropdown();
+
+  // reset preview_image
+  onCancelPreview();
 };
 
 displaySlides(slide_index);
