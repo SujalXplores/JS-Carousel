@@ -45,6 +45,24 @@ function toggleNumberIndicator(numberIndicatorCheckBox) {
   });
 }
 
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    let reader = new FileReader();
+    reader.onload = function (e) {
+      let image = document.getElementById("preview_image");
+      image.src = e.target.result;
+    };
+    reader.readAsDataURL(input.files[0]);
+    document.querySelector(".cancel__svg").style.display = "block";
+  }
+}
+
+const onCancelPreview = () => {
+  document.getElementById("add__carousel__input").value = "";
+  document.getElementById("preview_image").src = "./assets/thumbnail.jpg";
+  document.querySelector(".cancel__svg").style.display = "none";
+};
+
 /* Adds Element BEFORE NeighborElement */
 Element.prototype.appendBefore = function (element) {
   element.parentNode.insertBefore(this, element);

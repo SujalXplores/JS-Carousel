@@ -50,8 +50,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="carousel_label_input">Enter carousel image URI</label>
-                                <input type="url" class="form-control" id="carousel_image_input" required />
+                                <input type='file' onchange="readURL(this);" id="add__carousel__input" />
+                                <div class="thumbnail-container">
+                                    <img id="preview_image" src="./assets/thumbnail.jpg" alt="thumbnail"
+                                        accept="image/*" />
+                                    <img src="./assets/cancel.svg" alt="close" class="cancel__svg"
+                                        onclick="onCancelPreview()" />
+                                </div>
                             </div>
 
                             <label for="available-slides__add">Choose position to add:</label>

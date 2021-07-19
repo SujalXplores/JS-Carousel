@@ -175,12 +175,29 @@ a {
 
 /* form */
 
+#preview_image {
+  max-width: 180px;
+  margin: 1rem 0;
+}
+
+.thumbnail-container {
+  position: relative;
+}
+
+.cancel__svg {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  cursor: pointer;
+  display: none;
+}
+
 .main__form {
   border: 1px solid var(--color-gray);
   padding: 1rem;
   margin: 0 1rem;
   border-radius: 0.5rem;
-  min-height: 15rem;
+  min-height: 26rem;
   min-width: 22rem;
   box-shadow: rgb(116 129 141 / 10%) 0px 3px 8px 0px;
 }
