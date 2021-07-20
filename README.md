@@ -1,5 +1,6 @@
 # JS-Carousel
 
+[Live Demo 🟢](https://sujalshah3234.github.io/JS-Carousel)
 ---
 
 ### This project is purely made in HTML, CSS & JAVASCRIPT
