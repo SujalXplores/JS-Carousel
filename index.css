@@ -50,6 +50,7 @@ a {
   bottom: 0;
   right: 49.1%;
   cursor: pointer;
+  opacity: 0;
 }
 
 .carousel__items {
@@ -64,6 +65,19 @@ a {
   display: none;
   display: inline-block;
   position: relative;
+}
+
+.carousel__item:hover .delete__icon {
+  animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .carousel__item .fade {
