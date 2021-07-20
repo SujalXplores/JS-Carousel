@@ -1,4 +1,4 @@
-### JS-Carousel
+# JS-Carousel
 
 ---
 
@@ -21,12 +21,12 @@
 
 ---
 
-⬛ Remove global variables
-⬛ Show multiple slides at a time
-⬛ Improving carousel UI
+⬛ Remove global variables<br>
+⬛ Show multiple slides at a time<br>
+⬛ Improving carousel UI<br>
 
 ---
 
 ### Fork this repo to collaborate & contribute to this open source project
 
-# 🌟 this repo if you find it useful.
+### 🌟 this repo if you find it useful.
